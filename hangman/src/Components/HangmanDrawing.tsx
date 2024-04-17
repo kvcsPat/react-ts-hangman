@@ -94,6 +94,7 @@ type HangmanDrawingProps = {
 export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
   return (
     <div style={{ position: "relative" }}>
+      {/* render a body part after each incorrect letter */}
       {BODY_PARTS.slice(0, numberOfGuesses)}
       <div
         style={{

@@ -3,14 +3,17 @@ import words from "./wordList.json";
 import { HangmanDrawing } from "./Components/HangmanDrawing";
 import { HangmanWord } from "./Components/HangmanWord";
 import { Keyboard } from "./Components/Keyboard";
+import { RestartBtn } from "./Components/RestartBtn";
 
 function App() {
   /* random word to guess */
-  const [wordToGuess, setWordToGuess] = useState(() => {
+  function getWord() {
     return words[Math.floor(Math.random() * words.length)];
-  });
+  }
+  /* state for word to guess */
+  const [wordToGuess, setWordToGuess] = useState(getWord);
 
-  /* variable for guessed letters */
+  /* state for guessed letters */
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
   /* incorrect letters */
@@ -23,14 +26,21 @@ function App() {
     wordToGuess.includes(letter)
   );
 
+  /* Win - Lose logic */
+  const isLoser = incorrectLetters.length >= 6;
+
+  const isWinner = wordToGuess
+    .split("")
+    .every((letter) => guessedLetters.includes(letter));
+
   /* add guessed letter if it hasn't been guessed yet */
   const addGuessedLetter = useCallback(
     (letter: string) => {
-      if (guessedLetters.includes(letter)) return;
+      if (guessedLetters.includes(letter) || isWinner || isLoser) return;
 
       setGuessedLetters((currentLetters) => [...currentLetters, letter]);
     },
-    [guessedLetters]
+    [guessedLetters, isWinner, isLoser]
   );
 
   /* event listener for keypress */
@@ -62,11 +72,57 @@ function App() {
         gap: "2rem",
       }}
     >
-      <div style={{ fontSize: "2rem", textAlign: "center" }}>Lose Win</div>
+      <div style={{ fontSize: "2rem", textAlign: "center" }}>
+        {isWinner && (
+          <>
+            <h1
+              style={{
+                fontFamily: "monospace",
+                fontSize: "6rem",
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                color: "green",
+              }}
+            >
+              Winner!
+            </h1>
+            <RestartBtn
+              clearLetters={setGuessedLetters}
+              newWord={setWordToGuess}
+              getWord={getWord}
+            />
+          </>
+        )}
+        {isLoser && (
+          <>
+            <h1
+              style={{
+                fontFamily: "monospace",
+                fontSize: "6rem",
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                color: "red",
+              }}
+            >
+              Nice Try
+            </h1>
+            <RestartBtn
+              clearLetters={setGuessedLetters}
+              newWord={setWordToGuess}
+              getWord={getWord}
+            />
+          </>
+        )}
+      </div>
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
-      <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
+      <HangmanWord
+        reveal={isLoser}
+        guessedLetters={guessedLetters}
+        wordToGuess={wordToGuess}
+      />
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard
+          disabled={isWinner || isLoser}
           activeLetters={correctLetters}
           inactiveLetters={incorrectLetters}
           addGuessedLetter={addGuessedLetter}

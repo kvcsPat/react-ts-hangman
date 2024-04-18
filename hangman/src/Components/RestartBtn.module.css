@@ -2,7 +2,6 @@
   cursor: pointer;
 
   width: 100%;
-  aspect-ratio: 1 / 1;
 
   padding: 0.5rem;
 
@@ -17,16 +16,7 @@
   background: none;
 }
 
-.btn.active {
-  color: white;
-  background-color: hsl(200, 100%, 50%);
-}
-
-.btn.inactive {
-  opacity: 0.3;
-}
-
-.btn:hover:not(:disabled),
-.btn:focus:not(:disabled) {
+.btn:hover,
+.btn:focus {
   background-color: hsl(200, 100%, 75%);
 }

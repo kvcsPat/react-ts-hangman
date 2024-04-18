@@ -1,3 +1,5 @@
+import styles from "./RestartBtn.module.css";
+
 type RestartBtnProps = {
   clearLetters: React.Dispatch<React.SetStateAction<string[]>>;
   newWord: React.Dispatch<React.SetStateAction<string>>;
@@ -14,5 +16,9 @@ export function RestartBtn({
     newWord(getWord);
   };
 
-  return <button onClick={handleRestart}>Restart</button>;
+  return (
+    <button className={styles.btn} onClick={handleRestart}>
+      Restart
+    </button>
+  );
 }

@@ -4,6 +4,7 @@ import { HangmanDrawing } from "./Components/HangmanDrawing";
 import { HangmanWord } from "./Components/HangmanWord";
 import { Keyboard } from "./Components/Keyboard";
 import { RestartBtn } from "./Components/RestartBtn";
+import "./App.css";
 
 function App() {
   /* random word to guess */
@@ -81,7 +82,8 @@ function App() {
                 fontSize: "6rem",
                 fontWeight: "bold",
                 textTransform: "uppercase",
-                color: "green",
+                marginBottom: "1rem",
+                color: "#5ddd72",
               }}
             >
               Winner!
@@ -98,10 +100,11 @@ function App() {
             <h1
               style={{
                 fontFamily: "monospace",
-                fontSize: "6rem",
+                fontSize: "3.5rem",
                 fontWeight: "bold",
                 textTransform: "uppercase",
-                color: "red",
+                marginBottom: "1rem",
+                color: "#ff4949",
               }}
             >
               Nice Try

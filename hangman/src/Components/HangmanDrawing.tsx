@@ -7,7 +7,7 @@ const HEAD = (
       width: "50px",
       height: "50px",
       borderRadius: "100%",
-      border: "10px solid black",
+      border: "10px solid white",
     }}
   />
 );
@@ -20,7 +20,7 @@ const BODY = (
       right: "0",
       width: "10px",
       height: "100px",
-      background: "black",
+      background: "white",
     }}
   />
 );
@@ -35,7 +35,9 @@ const RIGHT_ARM = (
       height: "10px",
       rotate: "-30deg",
       transformOrigin: "left bottom",
-      background: "black",
+      borderBottomRightRadius: "5px",
+      borderTopRightRadius: "5px",
+      background: "white",
     }}
   />
 );
@@ -50,7 +52,9 @@ const LEFT_ARM = (
       height: "10px",
       rotate: "30deg",
       transformOrigin: "right bottom",
-      background: "black",
+      borderBottomLeftRadius: "5px",
+      borderTopLeftRadius: "5px",
+      background: "white",
     }}
   />
 );
@@ -65,7 +69,9 @@ const RIGHT_LEG = (
       height: "10px",
       rotate: "60deg",
       transformOrigin: "left bottom",
-      background: "black",
+      borderBottomRightRadius: "5px",
+      borderTopRightRadius: "5px",
+      background: "white",
     }}
   />
 );
@@ -80,7 +86,9 @@ const LEFT_LEG = (
       height: "10px",
       rotate: "-60deg",
       transformOrigin: "right bottom",
-      background: "black",
+      borderBottomLeftRadius: "5px",
+      borderTopLeftRadius: "5px",
+      background: "white",
     }}
   />
 );
@@ -103,7 +111,9 @@ export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
           right: "0",
           height: "50px",
           width: "10px",
-          background: "black",
+          borderTopLeftRadius: "5px",
+          borderTopRightRadius: "5px",
+          background: "white",
         }}
       />
       <div
@@ -111,7 +121,9 @@ export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
           height: "10px",
           width: "200px",
           marginLeft: "120px",
-          background: "black",
+          borderTopLeftRadius: "5px",
+          borderTopRightRadius: "5px",
+          background: "white",
         }}
       />
       <div
@@ -119,10 +131,18 @@ export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
           height: "400px",
           width: "10px",
           marginLeft: "120px",
-          background: "black",
+          background: "white",
         }}
       />
-      <div style={{ height: "10px", width: "250px", background: "black" }} />
+      <div
+        style={{
+          height: "10px",
+          width: "250px",
+          borderTopLeftRadius: "5px",
+          borderTopRightRadius: "5px",
+          background: "white",
+        }}
+      />
     </div>
   );
 }

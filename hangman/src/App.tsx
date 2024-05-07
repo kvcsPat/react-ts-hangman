@@ -100,7 +100,7 @@ function App() {
             <h1
               style={{
                 fontFamily: "monospace",
-                fontSize: "3.5rem",
+                fontSize: "6rem",
                 fontWeight: "bold",
                 textTransform: "uppercase",
                 marginBottom: "1rem",

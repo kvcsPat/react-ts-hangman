@@ -27,6 +27,8 @@ $ npm install
 $ npm run dev
 ```
 
+Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
+
 ## Screenshots
 
 ![hangman-start](https://github.com/kvcsPat/react-ts-hangman/assets/102482465/0eaa6939-f8fd-4407-b884-c5c65efdf07f)

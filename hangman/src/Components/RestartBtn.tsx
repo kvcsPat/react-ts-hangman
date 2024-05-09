@@ -17,7 +17,7 @@ export function RestartBtn({
   };
 
   return (
-    <button className={styles.btn} onClick={handleRestart}>
+    <button id="restart" className={styles.btn} onClick={handleRestart}>
       Restart
     </button>
   );

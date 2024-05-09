@@ -44,6 +44,7 @@ export function Keyboard({
 }: KeyboardProps) {
   return (
     <div
+      className="keyboard"
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",

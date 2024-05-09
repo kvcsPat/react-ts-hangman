@@ -5,6 +5,7 @@ import { HangmanWord } from "./Components/HangmanWord";
 import { Keyboard } from "./Components/Keyboard";
 import { RestartBtn } from "./Components/RestartBtn";
 import "./App.css";
+import "./MediaQueries.css";
 
 function App() {
   /* random word to guess */
@@ -64,19 +65,28 @@ function App() {
 
   return (
     <div
+      className="App"
       style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         maxWidth: "800px",
+        minHeight: "fit-content",
+        height: "100%",
         margin: "0 auto",
         gap: "2rem",
       }}
     >
-      <div style={{ fontSize: "2rem", textAlign: "center" }}>
+      <div
+        style={{
+          fontSize: "2rem",
+          textAlign: "center",
+        }}
+      >
         {isWinner && (
           <>
             <h1
+              className="endgame-title"
               style={{
                 fontFamily: "monospace",
                 fontSize: "6rem",
@@ -98,6 +108,7 @@ function App() {
         {isLoser && (
           <>
             <h1
+              className="endgame-title"
               style={{
                 fontFamily: "monospace",
                 fontSize: "6rem",

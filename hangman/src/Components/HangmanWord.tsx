@@ -11,6 +11,7 @@ export function HangmanWord({
 }: HangmanWordProps) {
   return (
     <div
+      className="word"
       style={{
         display: "flex",
         gap: ".25em",
